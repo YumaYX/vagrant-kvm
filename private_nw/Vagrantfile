@@ -1,0 +1,28 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure('2') do |config|
+  config.vm.box = 'almalinux/9'
+
+  config.vm.provider 'libvirt' do |vb|
+    vb.memory = 768
+    vb.cpus = 4
+  end
+
+  config.vm.define 'test1' do |vm1|
+    vm1.vm.network :private_network,
+                   ip: '172.17.64.2',
+                   libvirt__netmask: '255.255.255.0',
+                   libvirt__network_name: 'mynetwork',
+                   libvirt__forward_mode: 'none'
+  end
+
+  config.vm.define 'test2' do |vm1|
+    vm1.vm.network :private_network,
+                   ip: '172.17.64.3',
+                   libvirt__netmask: '255.255.255.0',
+                   libvirt__network_name: 'mynetwork',
+                   libvirt__forward_mode: 'none'
+  end
+  config.vm.synced_folder('.', '/vagrant', disabled: true)
+end

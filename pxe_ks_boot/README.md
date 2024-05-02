@@ -1,0 +1,2 @@
+- private networkにおいて、`:libvirt__dhcp_enabled => false`でDHCPなしにできる。
+- インストール後、外部不通、private network削除後、NATを取り付ければ、通信可能
