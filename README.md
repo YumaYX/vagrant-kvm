@@ -4,7 +4,7 @@
 # as root
 ## kvm
 dnf -y install qemu-kvm libvirt virt-install
-systemctl enable --now libvirtd 
+systemctl enable --now libvirtd
 
 ## vagrant
 yum install -y yum-utils
@@ -12,9 +12,9 @@ yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.
 yum -y install vagrant
 
 dnf -y install libvirt-devel
-usermod -aG libvirt user
+usermod -aG libvirt yuma
 
-su - user
+su - yuma
 ```
 
 ```sh
